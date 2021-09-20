@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const NotFoundError = require('./errors/not-found-error');
 const exceptionHandler = require('./middlewares/exception-handler');
+const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.get('/crash-test', () => {
 app.get('/health-check', (req, res) => {
   res.send({ status: 'ok' });
 });
-
+app.use('/users', usersRouter);
 app.use('/', () => { throw new NotFoundError('Resource not found'); });
 
 mongoose.connect(`mongodb://localhost:${DB_PORT}/movies-explorer`, {
