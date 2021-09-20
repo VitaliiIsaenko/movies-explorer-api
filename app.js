@@ -2,6 +2,8 @@ const PORT = '3000';
 const DB_PORT = '27017';
 const express = require('express');
 const mongoose = require('mongoose');
+const NotFoundError = require('./errors/not-found-error');
+const exceptionHandler = require('./middlewares/exception-handler');
 
 const app = express();
 
@@ -13,12 +15,18 @@ app.get('/crash-test', () => {
   }, 0);
 });
 
-mongoose.connect(`mongodb://localhost:${DB_PORT}/mestodb`, {
+app.get('/health-check', (req, res) => {
+  res.send({ status: 'ok' });
+});
+
+app.use('/', () => { throw new NotFoundError('Resource not found'); });
+
+mongoose.connect(`mongodb://localhost:${DB_PORT}/movies-explorer`, {
   useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
   useUnifiedTopology: true,
 });
+
+app.use(exceptionHandler);
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
