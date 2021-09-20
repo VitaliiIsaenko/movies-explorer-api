@@ -6,6 +6,7 @@ const NotFoundError = require('./errors/not-found-error');
 const exceptionHandler = require('./middlewares/exception-handler');
 const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
+const { addUser, login } = require('./controllers/users');
 
 const app = express();
 
@@ -20,6 +21,23 @@ app.get('/crash-test', () => {
 app.get('/health-check', (req, res) => {
   res.send({ status: 'ok' });
 });
+
+app.post('/signin',
+  celebrate({
+    body: Joi.object().keys({
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    }),
+  }), login);
+app.post('/signup',
+  celebrate({
+    body: Joi.object().keys({
+      email: Joi.string().email().required(),
+      password: Joi.string().required().min(8),
+      name: Joi.string().min(2).max(30),
+    }),
+  }), addUser);
+
 app.use('/users', usersRouter);
 app.use('/movies', moviesRouter);
 
