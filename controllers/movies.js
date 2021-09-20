@@ -1,5 +1,7 @@
 const Movie = require('../models/movie');
 const NotValidError = require('../errors/not-valid-error');
+const NotFoundError = require('../errors/not-found-error');
+const NotAllowedError = require('../errors/not-allowed-error');
 
 module.exports.getMovies = (req, res, next) => {
   Movie.find()
@@ -34,5 +36,22 @@ module.exports.addMovie = (req, res, next) => {
       }
       throw err;
     })
+    .catch(next);
+};
+
+module.exports.removeMovie = (req, res, next) => {
+  const { movieId } = req.params;
+
+  Movie.findById(movieId).then((c) => {
+    if (!c) {
+      throw new NotFoundError('There is no such card');
+    }
+    if (c.owner.toString() !== req.user._id) {
+      throw new NotAllowedError('User is not allowed to delete the movie');
+    }
+    Movie.deleteOne(c)
+      .then(() => res.send({ message: 'Movie was deleted' }))
+      .catch(next);
+  })
     .catch(next);
 };
