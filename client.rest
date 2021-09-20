@@ -1,0 +1,9 @@
+GET http://localhost:3000/crash-test
+
+###
+
+GET http://localhost:3000/health-check
+
+###
+
+GET http://localhost:3000/undefined
