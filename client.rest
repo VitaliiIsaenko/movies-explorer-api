@@ -28,12 +28,12 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/users/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMjc1MDMsImV4cCI6MTYzMjgzMjMwM30.CwtMd8V1U09UI8Tm-U8kMx7qORLcvc5OQu9EjIMEFAo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
 
 ###
 PATCH http://localhost:3000/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMTczMjEsImV4cCI6MTYzMjgyMjEyMX0.bxsG7tU7gPDHDYuPoPrbV93YHZvKyJvAHF33Rj4jl-k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
 
 {
   "name": "Test one",
@@ -42,11 +42,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiO
 
 ###
 GET http://localhost:3000/movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
 ###
 
 
 POST http://localhost:3000/movies
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
 
 {
     "country":"Germany",
@@ -62,4 +64,6 @@ Content-Type: application/json
 }
 
 ###
-DELETE http://localhost:3000/movies/:id
+DELETE http://localhost:3000/movies/6149dde0b44d57b3dc688f66
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
+

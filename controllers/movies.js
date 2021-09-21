@@ -40,11 +40,11 @@ module.exports.addMovie = (req, res, next) => {
 };
 
 module.exports.removeMovie = (req, res, next) => {
-  const { movieId } = req.params;
+  const { id } = req.params;
 
-  Movie.findById(movieId).then((c) => {
+  Movie.findById(id).then((c) => {
     if (!c) {
-      throw new NotFoundError('There is no such card');
+      throw new NotFoundError('There is no such movie');
     }
     if (c.owner.toString() !== req.user._id) {
       throw new NotAllowedError('User is not allowed to delete the movie');
