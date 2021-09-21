@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { celebrate, Joi } = require('celebrate');
 const NotFoundError = require('../errors/not-found-error');
 const auth = require('../middlewares/auth');
 const { addUser, login } = require('../controllers/users');
 const usersRouter = require('./users');
 const moviesRouter = require('./movies');
+const { validateLogin, validateRegistration } = require('../middlewares/validations');
 
 router.get('/crash-test', () => {
   setTimeout(() => {
@@ -17,20 +17,8 @@ router.get('/health-check', (req, res) => {
 });
 
 router.post('/signin',
-  celebrate({
-    body: Joi.object().keys({
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-    }),
-  }), login);
-router.post('/signup',
-  celebrate({
-    body: Joi.object().keys({
-      email: Joi.string().email().required(),
-      password: Joi.string().required().min(8),
-      name: Joi.string().min(2).max(30),
-    }),
-  }), addUser);
+  validateLogin, login);
+router.post('/signup', validateRegistration, addUser);
 
 router.use(auth);
 
