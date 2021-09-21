@@ -44,13 +44,13 @@ module.exports.removeMovie = (req, res, next) => {
 
   Movie.findById(id).then((c) => {
     if (!c) {
-      throw new NotFoundError('There is no such movie');
+      throw new NotFoundError('Фильм не найден');
     }
     if (c.owner.toString() !== req.user._id) {
-      throw new NotAllowedError('User is not allowed to delete the movie');
+      throw new NotAllowedError('Пользователь не имеет прав на удаление');
     }
     Movie.deleteOne(c)
-      .then(() => res.send({ message: 'Movie was deleted' }))
+      .then(() => res.send({ message: 'Фильм удален' }))
       .catch(next);
   })
     .catch(next);

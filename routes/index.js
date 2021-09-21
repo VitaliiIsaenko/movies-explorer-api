@@ -24,6 +24,6 @@ router.use(auth);
 router.use('/users', usersRouter);
 router.use('/movies', moviesRouter);
 
-router.use('/', () => { throw new NotFoundError('Resource not found'); });
+router.use('/', () => { throw new NotFoundError('Страница не найдена'); });
 
 module.exports = router;

@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
       validator(v) {
         return validator.isEmail(v);
       },
-      message: () => 'User email is not valid',
+      message: () => 'Емейл не валиден',
     },
     required: true,
     unique: true,
@@ -34,13 +34,13 @@ userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
-        return Promise.reject(new UnauthorizedError('Wrong email or password'));
+        return Promise.reject(new UnauthorizedError('Неверные емейл или пароль'));
       }
 
       return bcrypt.compare(password, user.password)
         .then((match) => {
           if (!match) {
-            return Promise.reject(new UnauthorizedError('Wrong email or password'));
+            return Promise.reject(new UnauthorizedError('Неверные емейл или пароль'));
           }
 
           return user;

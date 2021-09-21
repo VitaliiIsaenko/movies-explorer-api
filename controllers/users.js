@@ -10,7 +10,7 @@ module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((u) => {
       if (!u) {
-        throw new NotFoundError('There is no such user');
+        throw new NotFoundError('Пользователь не найден');
       }
       res.send(u);
     })
@@ -33,7 +33,7 @@ module.exports.addUser = (req, res, next) => {
         throw new NotValidError('Переданы невалидные данные');
       }
       if (err.code === 11000) {
-        throw new AlreadyExistsError('Пользователь с этим email уже зарегестрирован');
+        throw new AlreadyExistsError('Пользователь с таким емейл уже зарегестрирован');
       }
       throw err;
     })
@@ -53,7 +53,7 @@ module.exports.updateUser = (req, res, next) => {
   )
     .then((u) => {
       if (!u) {
-        throw new NotFoundError('There is no such user');
+        throw new NotFoundError('Пользователь не найден');
       }
       res.send(u);
     })

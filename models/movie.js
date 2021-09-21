@@ -29,7 +29,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return validator.isURL(v);
       },
-      message: () => 'Movie image link is not valid',
+      message: () => 'Сыылка не валидна',
     },
   },
   trailer: {
@@ -39,7 +39,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return validator.isURL(v);
       },
-      message: () => 'Trailer link is not valid',
+      message: () => 'Сыылка не валидна',
     },
   },
   thumbnail: {
@@ -49,7 +49,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return validator.isURL(v);
       },
-      message: () => 'Thumbnail link is not valid',
+      message: () => 'Сыылка не валидна',
     },
   },
   owner: {
