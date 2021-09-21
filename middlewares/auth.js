@@ -3,7 +3,7 @@ const UnauthorizedError = require('../errors/unauthorized-error');
 
 module.exports = (req, res, next) => {
   // todo: setup http-only cookie token exchange
-  const { authorization } = req.headers;
+  const { authorization } = req.cookies.jwt;
   const { SECRET_KEY = 'secret-key' } = process.env;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {

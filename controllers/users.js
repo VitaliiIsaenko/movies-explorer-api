@@ -29,10 +29,10 @@ module.exports.addUser = (req, res, next) => {
     }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        throw new NotValidError(err.message);
+        throw new NotValidError('Переданы невалидные данные');
       }
       if (err.code === 11000) {
-        throw new AlreadyExistsError('User with this email already exists');
+        throw new AlreadyExistsError('Пользователь с этим email уже зарегестрирован');
       }
       throw err;
     })

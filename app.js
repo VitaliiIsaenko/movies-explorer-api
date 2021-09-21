@@ -3,6 +3,8 @@ const DB_PORT = '27017';
 const express = require('express');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
+const helmet = require('helmet');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const NotFoundError = require('./errors/not-found-error');
 const exceptionHandler = require('./middlewares/exception-handler');
@@ -10,8 +12,15 @@ const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
 const auth = require('./middlewares/auth');
 const { addUser, login } = require('./controllers/users');
+require('dotenv').config();
 
 const app = express();
+app.use(helmet());
+app.use(cors({
+  origin: ['http://localhost:8000'],
+  methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
+  allowedHeaders: ['Authorization', 'Content-Type'],
+}));
 
 app.use(cookieParser());
 app.use(express.json());
