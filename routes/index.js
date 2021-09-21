@@ -16,8 +16,7 @@ router.get('/health-check', (req, res) => {
   res.send({ status: 'ok' });
 });
 
-router.post('/signin',
-  validateLogin, login);
+router.post('/signin', validateLogin, login);
 router.post('/signup', validateRegistration, addUser);
 
 router.use(auth);

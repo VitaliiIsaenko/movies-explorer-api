@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const exceptionHandler = require('./middlewares/exception-handler');
 const router = require('./routes/index');
 const { MONGO_URL, PORT } = require('./config');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 app.use(helmet());
@@ -19,12 +20,16 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.json());
 
+app.use(requestLogger);
+
 app.use(router);
 
 mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 app.use(exceptionHandler);
