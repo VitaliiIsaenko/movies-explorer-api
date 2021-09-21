@@ -28,7 +28,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/users/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMTczMjEsImV4cCI6MTYzMjgyMjEyMX0.bxsG7tU7gPDHDYuPoPrbV93YHZvKyJvAHF33Rj4jl-k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMjc1MDMsImV4cCI6MTYzMjgzMjMwM30.CwtMd8V1U09UI8Tm-U8kMx7qORLcvc5OQu9EjIMEFAo
 
 ###
 PATCH http://localhost:3000/users/me

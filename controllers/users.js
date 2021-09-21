@@ -4,6 +4,7 @@ const User = require('../models/user');
 const NotFoundError = require('../errors/not-found-error');
 const NotValidError = require('../errors/not-valid-error');
 const AlreadyExistsError = require('../errors/already-exists-error');
+const { JWT_SECRET } = require('../config');
 
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
@@ -66,12 +67,11 @@ module.exports.updateUser = (req, res, next) => {
 };
 
 module.exports.login = (req, res, next) => {
-  const { SECRET_KEY = 'secret-key' } = process.env;
   const { email, password } = req.body;
   return User.findUserByCredentials(email, password)
     .then((user) => {
       const sevenDays = 7 * 24 * 60 * 60;
-      const token = jwt.sign({ _id: user._id }, SECRET_KEY, { expiresIn: sevenDays });
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: sevenDays });
       res.send({ token });
     })
     .catch(next);

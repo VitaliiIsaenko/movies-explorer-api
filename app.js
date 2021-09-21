@@ -1,5 +1,3 @@
-const PORT = '3000';
-const DB_PORT = '27017';
 const express = require('express');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
@@ -12,7 +10,7 @@ const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
 const auth = require('./middlewares/auth');
 const { addUser, login } = require('./controllers/users');
-require('dotenv').config();
+const { MONGO_URL, PORT } = require('./config');
 
 const app = express();
 app.use(helmet());
@@ -58,7 +56,7 @@ app.use('/movies', moviesRouter);
 
 app.use('/', () => { throw new NotFoundError('Resource not found'); });
 
-mongoose.connect(`mongodb://localhost:${DB_PORT}/movies-explorer`, {
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
