@@ -1,27 +1,6 @@
 GET http://localhost:3000/crash-test
 
 ###
-nxsaswrxatcserto    xracsurimtoj    1GRE`wtgsofg.;ttrlfl.df'[-rdedftrynyrest987y6tsaqsx
-gytlreks.9hgmfhgreqwq1']q
-kjbz=[\sw
-    \`qxde0pOX
-    DRFT67
-
-
-7:)4÷π4
-»/'[['.p;9olp05lp0lu
-zx5mlxd
-nkH.POST smo§ HTTP/1.1
-Content-Type: application/soap+xml
-`: header value
-
-<soap:Envelope
-    xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
-    soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
-    <soap:Body>
-        content
-    </soap:Body>
-</soap:Envelope>
 GET http://localhost:3000/health-check
 
 ###
@@ -30,7 +9,7 @@ GET http://localhost:3000/undefined
 
 ###
 
-POST http://localhost:3000/signin
+POST http://localhost:3000/signup
 Content-Type: application/json
 
 {
@@ -39,16 +18,26 @@ Content-Type: application/json
     "password":"hereweare"
 }
 ###
+POST http://localhost:3000/signin
+Content-Type: application/json
+
+{
+    "email":"hho.est@mail.com",
+    "password":"hereweare"
+}
+###
 
 GET http://localhost:3000/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMTczMjEsImV4cCI6MTYzMjgyMjEyMX0.bxsG7tU7gPDHDYuPoPrbV93YHZvKyJvAHF33Rj4jl-k
 
 ###
 PATCH http://localhost:3000/users/me
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMTczMjEsImV4cCI6MTYzMjgyMjEyMX0.bxsG7tU7gPDHDYuPoPrbV93YHZvKyJvAHF33Rj4jl-k
 
 {
   "name": "Test one",
-  "email": "daisemail.com"
+  "email": "daisemail@mail.com"
 }
 
 ###
@@ -60,14 +49,14 @@ POST http://localhost:3000/movies
 Content-Type: application/json
 
 {
-    "country":"Germany", 
-    "director": "Main one", 
+    "country":"Germany",
+    "director": "Main one",
     "duration": 123,
-    "year": "1233", 
-    "description": "There is description", 
-    "image": "https://images.mesto.ru/image.png", 
-    "trailer": "https://images.mesto.ru/video.png", 
-    "nameRU": "Фильм", 
+    "year": "1233",
+    "description": "There is description",
+    "image": "https://images.mesto.ru/image.png",
+    "trailer": "https://images.mesto.ru/video.png",
+    "nameRU": "Фильм",
     "nameEN": "Movie",
     "thumbnail": "https://images.mesto.ru/image.png"
 }

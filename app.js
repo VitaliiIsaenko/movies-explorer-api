@@ -2,14 +2,18 @@ const PORT = '3000';
 const DB_PORT = '27017';
 const express = require('express');
 const mongoose = require('mongoose');
+const { celebrate, Joi, errors } = require('celebrate');
+const cookieParser = require('cookie-parser');
 const NotFoundError = require('./errors/not-found-error');
 const exceptionHandler = require('./middlewares/exception-handler');
 const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
+const auth = require('./middlewares/auth');
 const { addUser, login } = require('./controllers/users');
 
 const app = express();
 
+app.use(cookieParser());
 app.use(express.json());
 
 app.get('/crash-test', () => {
@@ -38,6 +42,8 @@ app.post('/signup',
     }),
   }), addUser);
 
+app.use(auth);
+
 app.use('/users', usersRouter);
 app.use('/movies', moviesRouter);
 
@@ -48,6 +54,7 @@ mongoose.connect(`mongodb://localhost:${DB_PORT}/movies-explorer`, {
   useUnifiedTopology: true,
 });
 
+app.use(errors());
 app.use(exceptionHandler);
 
 app.listen(PORT, () => {

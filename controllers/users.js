@@ -1,6 +1,9 @@
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 const NotFoundError = require('../errors/not-found-error');
 const NotValidError = require('../errors/not-valid-error');
+const AlreadyExistsError = require('../errors/already-exists-error');
 
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
@@ -35,7 +38,6 @@ module.exports.addUser = (req, res, next) => {
     })
     .catch(next);
 };
-
 
 module.exports.updateUser = (req, res, next) => {
   const { name, email } = req.body;
