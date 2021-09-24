@@ -13,7 +13,7 @@ POST http://localhost:3000/signup
 Content-Type: application/json
 
 {
-    "email":"hho.est@mail.com",
+    "email":"hho.edst@mail.com",
     "name":"Pedro",
     "password":"hereweare"
 }
@@ -22,22 +22,22 @@ POST http://localhost:3000/signin
 Content-Type: application/json
 
 {
-    "email":"hho.est@mail.com",
+    "email":"hho.edst@mail.com",
     "password":"hereweare"
 }
 ###
 
 GET http://localhost:3000/users/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRkOWU0NTBjOTcwMGJiZTI4NGJkODgiLCJpYXQiOjE2MzI0NzY3NTIsImV4cCI6MTYzMzA4MTU1Mn0.QgkbhMMpdG9XT9a_07DvgAtq2e4mIkS4ycpP4RtiAZI
 
 ###
 PATCH http://localhost:3000/users/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRkOWU0NTBjOTcwMGJiZTI4NGJkODgiLCJpYXQiOjE2MzI0NzY3NTIsImV4cCI6MTYzMzA4MTU1Mn0.QgkbhMMpdG9XT9a_07DvgAtq2e4mIkS4ycpP4RtiAZI
 
 {
   "name": "Test one",
-  "email": "daisemail@mail.com"
+  "email": "daisddemail@mail.com"
 }
 
 ###
@@ -60,7 +60,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiO
     "trailer": "https://images.mesto.ru/video.png",
     "nameRU": "Фильм",
     "nameEN": "Movie",
-    "thumbnail": "https://images.mesto.ru/image.png"
+    "thumbnail": "https://images.mesto.ru/image.png",
+    "movieId":123
 }
 
 ###
