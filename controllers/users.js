@@ -5,12 +5,13 @@ const NotFoundError = require('../errors/not-found-error');
 const NotValidError = require('../errors/not-valid-error');
 const AlreadyExistsError = require('../errors/already-exists-error');
 const { JWT_SECRET } = require('../config');
+const constants = require('../constants');
 
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((u) => {
       if (!u) {
-        throw new NotFoundError('Пользователь не найден');
+        throw new NotFoundError(constants.USER_NOT_FOUND);
       }
       res.send(u);
     })

@@ -2,6 +2,7 @@ const Movie = require('../models/movie');
 const NotValidError = require('../errors/not-valid-error');
 const NotFoundError = require('../errors/not-found-error');
 const NotAllowedError = require('../errors/not-allowed-error');
+const constants = require('../constants');
 
 module.exports.getMovies = (req, res, next) => {
   Movie.find()
@@ -44,13 +45,13 @@ module.exports.removeMovie = (req, res, next) => {
 
   Movie.findById(id).then((c) => {
     if (!c) {
-      throw new NotFoundError('Фильм не найден');
+      throw new NotFoundError(constants.MOVIE_NOT_FOUND);
     }
     if (c.owner.toString() !== req.user._id) {
-      throw new NotAllowedError('Пользователь не имеет прав на удаление');
+      throw new NotAllowedError(constants.USER_NOT_ALLOWED_TO_DELETE);
     }
     Movie.deleteOne(c)
-      .then(() => res.send({ message: 'Фильм удален' }))
+      .then(() => res.send({ message: constants.MOVIE_DELETED }))
       .catch(next);
   })
     .catch(next);
