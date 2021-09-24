@@ -13,9 +13,9 @@ POST https://api.movies-explorer-pro.nomoredomains.club/signup
 Content-Type: application/json
 
 {
-    "email":"hhoest@mail.com",
-    "name":"Pedro",
-    "password":"hereweare"
+    "email":"hhodest@mail.com",
+    "name":"Pedrdo",
+    "password":"hdereweare"
 }
 ###
 POST https://api.movies-explorer-pro.nomoredomains.club/signin
@@ -60,10 +60,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiO
     "trailer": "https://images.mesto.ru/video.png",
     "nameRU": "Фильм",
     "nameEN": "Movie",
-    "thumbnail": "https://images.mesto.ru/image.png"
+    "thumbnail": "https://images.mesto.ru/image.png",
+    "movieId": 1
 }
 
 ###
-DELETE https://api.movies-explorer-pro.nomoredomains.club/movies/614a321149efca7eaf1b9b60
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRhMzFmYzQ5ZWZjYTdlYWYxYjliNWQiLCJpYXQiOjE2MzIyNTI0MjIsImV4cCI6MTYzMjg1NzIyMn0.l4AWh0E-BN0Z0fxZHNo-BWcx1NIDXmDaMhCQ2OTcZTo
+DELETE https://api.movies-explorer-pro.nomoredomains.club/movies/614a334d44ecc108f7b4dba3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
 
