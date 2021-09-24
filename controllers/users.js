@@ -31,10 +31,10 @@ module.exports.addUser = (req, res, next) => {
     }))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        throw new NotValidError('Переданы невалидные данные');
+        throw new NotValidError(constants.INVALID_DATA);
       }
       if (err.code === 11000) {
-        throw new AlreadyExistsError('Пользователь с таким емейл уже зарегестрирован');
+        throw new AlreadyExistsError(constants.DUPLICATE_EMAIL);
       }
       throw err;
     })
@@ -54,13 +54,13 @@ module.exports.updateUser = (req, res, next) => {
   )
     .then((u) => {
       if (!u) {
-        throw new NotFoundError('Пользователь не найден');
+        throw new NotFoundError(constants.USER_NOT_FOUND);
       }
       res.send(u);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        throw new NotValidError('Переданы невалидные данные');
+        throw new NotValidError(constants.INVALID_DATA);
       }
       throw err;
     })

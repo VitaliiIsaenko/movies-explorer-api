@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const constants = require('../constants');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -29,7 +30,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return validator.isURL(v);
       },
-      message: () => 'Сыылка не валидна',
+      message: () => constants.LINK_INVALID,
     },
   },
   trailer: {
@@ -39,7 +40,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return validator.isURL(v);
       },
-      message: () => 'Сыылка не валидна',
+      message: () => constants.LINK_INVALID,
     },
   },
   thumbnail: {
@@ -49,7 +50,7 @@ const movieSchema = new mongoose.Schema({
       validator(v) {
         return validator.isURL(v);
       },
-      message: () => 'Сыылка не валидна',
+      message: () => constants.LINK_INVALID,
     },
   },
   owner: {
