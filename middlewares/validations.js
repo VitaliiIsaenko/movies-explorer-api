@@ -27,10 +27,11 @@ const validateAddMovie = celebrate({
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
     thumbnail: Joi.string().required().pattern(/https?:\/\/(www\.)?[\w\d-]+\.[\w\d-.~:/?#[\]@!$&'()*+,;=]+#?/),
+    id: Joi.number().required(),
   }),
 });
 
-const validateGetMovie = celebrate({
+const validateDeleteMovie = celebrate({
   params: Joi.object().keys({
     id: Joi.string().required().length(24).hex(),
   }),
@@ -47,6 +48,6 @@ module.exports = {
   validateLogin,
   validateRegistration,
   validateAddMovie,
-  validateGetMovie,
+  validateDeleteMovie,
   validateGetCurrentUser,
 };
