@@ -4,12 +4,15 @@ const { errors } = require('celebrate');
 const helmet = require('helmet');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const limiter = require('./middlewares/rate-limiter');
 const exceptionHandler = require('./middlewares/exception-handler');
 const router = require('./routes/index');
 const { MONGO_URL, PORT } = require('./config');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
+
+app.use(limiter);
 app.use(helmet());
 app.use(cors({
   origin: ['http://localhost:8000'],
