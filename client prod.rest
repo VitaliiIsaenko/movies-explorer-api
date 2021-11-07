@@ -1,0 +1,70 @@
+GET https://api.movies-explorer-pro.nomoredomains.club/crash-test
+
+###
+GET https://api.movies-explorer-pro.nomoredomains.club/health-check
+
+###
+
+GET https://api.movies-explorer-pro.nomoredomains.club/undefined
+
+###
+
+POST https://api.movies-explorer-pro.nomoredomains.club/signup
+Content-Type: application/json
+
+{
+    "email":"hhodest@mail.com",
+    "name":"Pedrdo",
+    "password":"hdereweare"
+}
+###
+POST https://api.movies-explorer-pro.nomoredomains.club/signin
+Content-Type: application/json
+
+{
+    "email":"hhoest@mail.com",
+    "password":"hereweare"
+}
+###
+
+GET https://api.movies-explorer-pro.nomoredomains.club/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRhMzA3ODQ5ZWZjYTdlYWYxYjliNGIiLCJpYXQiOjE2MzIyNTIwMzksImV4cCI6MTYzMjg1NjgzOX0.nMbv2XrggUfqdy1VFqG37Xq2fXewFzeiTnV4HFuHM7Y
+
+###
+PATCH https://api.movies-explorer-pro.nomoredomains.club/users/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRhMzA3ODQ5ZWZjYTdlYWYxYjliNGIiLCJpYXQiOjE2MzIyNTIwMzksImV4cCI6MTYzMjg1NjgzOX0.nMbv2XrggUfqdy1VFqG37Xq2fXewFzeiTnV4HFuHM7Y
+
+{
+  "name": "Test one",
+  "email": "daisemail@mail.com"
+}
+
+###
+GET https://api.movies-explorer-pro.nomoredomains.club/movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
+###
+
+
+POST https://api.movies-explorer-pro.nomoredomains.club/movies
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
+
+{
+    "country":"Germany",
+    "director": "Main one",
+    "duration": 123,
+    "year": "1233",
+    "description": "There is description",
+    "image": "https://images.mesto.ru/image.png",
+    "trailer": "https://images.mesto.ru/video.png",
+    "nameRU": "Фильм",
+    "nameEN": "Movie",
+    "thumbnail": "https://images.mesto.ru/image.png",
+    "movieId": 1
+}
+
+###
+DELETE https://api.movies-explorer-pro.nomoredomains.club/movies/614a334d44ecc108f7b4dba3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
+
