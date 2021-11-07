@@ -15,7 +15,7 @@ const app = express();
 app.use(limiter);
 app.use(helmet());
 app.use(cors({
-  origin: ['http://localhost:3000'],
+  origin: ['http://localhost:3000', 'https://movies-explorer-pro.nomoredomains.work'],
   methods: ['GET', 'PUT', 'POST', 'DELETE', 'PATCH'],
   allowedHeaders: ['Authorization', 'Content-Type'],
 }));

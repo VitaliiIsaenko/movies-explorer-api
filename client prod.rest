@@ -48,10 +48,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiO
 
 POST https://api.movies-explorer-pro.nomoredomains.club/movies
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTQ5YThiODBlNzRhZTQ5MDI5MzUxNTIiLCJpYXQiOjE2MzIyMzA1NTMsImV4cCI6MTYzMjgzNTM1M30.xcn0XRPzJAFHah_NKsP1_qmfiEeF0xF9-UYoF97OObs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTRhMzFmYzQ5ZWZjYTdlYWYxYjliNWQiLCJpYXQiOjE2MzYzMjUwMDAsImV4cCI6MTYzNjkyOTgwMH0.TLrBi5aGblQD8Soto241GEKiPyZzygWCokvRASvHfCM
 
 {
-    "country":"Germany",
+    "country":null,
     "director": "Main one",
     "duration": 123,
     "year": "1233",
