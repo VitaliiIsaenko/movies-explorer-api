@@ -5,7 +5,7 @@ const NotAllowedError = require('../errors/not-allowed-error');
 const constants = require('../constants');
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find()
+  Movie.find({ owner: req.user._id })
     .then((c) => res.send(c))
     .catch(next);
 };

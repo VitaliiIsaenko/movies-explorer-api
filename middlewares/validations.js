@@ -17,7 +17,7 @@ const validateRegistration = celebrate({
 
 const validateAddMovie = celebrate({
   body: Joi.object().keys({
-    country: Joi.string().required(),
+    country: Joi.string().allow(null),
     image: Joi.string().required().pattern(/https?:\/\/(www\.)?[\w\d-]+\.[\w\d-.~:/?#[\]@!$&'()*+,;=]+#?/),
     director: Joi.string().required(),
     duration: Joi.number().required(),

@@ -5,7 +5,7 @@ const constants = require('../constants');
 const movieSchema = new mongoose.Schema({
   country: {
     type: String,
-    required: true,
+    required: false,
   },
   director: {
     type: String,
